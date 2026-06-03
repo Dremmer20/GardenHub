@@ -66,17 +66,11 @@
             </div>
         </section>
 
-        <!-- Weather Widget Box -->
-       <section class="card weather-card">
+   <!-- Weather Widget Box -->
+        <section class="card weather-card">
             <h2><i class="fas fa-cloud-sun"></i> 5 Day Forecast</h2>
-            <div style="width: 100%; margin-top: 15px; border-radius: 8px; overflow: hidden;">
-                <a class="weatherwidget-io" href="https://forecast7.com/en/42d79n85d14/48849/" data-label_1="LAKE ODESSA" data-label_2="MICHIGAN" data-font="Roboto" data-icons="Climacons Animated" data-theme="weather_one" data-days="5">LAKE ODESSA FORECAST</a>
-                <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                </script>
+            <div style="width: 100%; margin-top: 15px; border-radius: 8px; overflow: hidden; background-color: #212529;">
+                <!-- Rock-solid IFRAME embed for Lake Odessa (42.73 N, -85.14 W) -->
+                <iframe src="https://www.meteoblue.com/en/weather/widget/three?geoloc=fixed&lat=42.73&lon=-85.14&days=5&temp=F&wind=mph&precip=in&timeformat=Y-m-d&layout=dark" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 100%; height: 600px;"></iframe>
             </div>
         </section>
-
-    </main>
-</body>
-</html>
