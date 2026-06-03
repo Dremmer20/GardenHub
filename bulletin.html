@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Hub - Bulletin Board</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
+
+    <nav class="side-nav" id="sideNav">
+        <a href="#" class="close-btn" id="closeBtn">&times;</a>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="resources.html"><i class="fas fa-book-open"></i> Resources & Zero-Waste</a>
+        <a href="photos.html"><i class="fas fa-camera"></i> Photo Gallery</a>
+        <a href="bulletin.html"><i class="fas fa-clipboard"></i> Bulletin Board</a>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="word-art">The Community Board</h1>
+            <p class="subtitle">Post questions, leave logistical notes, or drop words of encouragement.</p>
+        </div>
+    </header>
+
+    <main class="content-container">
+        
+        <!-- Post a Message Form -->
+        <section class="card">
+            <h2><i class="fas fa-pen-alt"></i> Leave a Note</h2>
+            <form id="bulletinForm" style="display: flex; flex-direction: column; gap: 15px;">
+                <div>
+                    <label style="display:block; margin-bottom: 5px; font-weight: bold;">Your Name:</label>
+                    <input type="text" id="volunteerName" required style="width:100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div>
+                    <label style="display:block; margin-bottom: 5px; font-weight: bold;">Message / Question:</label>
+                    <textarea id="volunteerMsg" rows="4" required style="width:100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: sans-serif;"></textarea>
+                </div>
+                <button type="submit" style="background-color: #2E7D32; color: white; padding: 12px; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; font-weight: bold;">Post to Board</button>
+            </form>
+        </section>
+
+        <!-- Dynamic Notice Feed -->
+        <section class="card">
+            <h2><i class="fas fa-thumbtack"></i> Active Notices</h2>
+            <div id="noticeFeed">
+                <div class="notice-post" style="border-bottom: 1px dashed #ccc; padding: 10px 0;">
+                    <p style="font-weight: bold; color: #2E7D32;">System Announcement</p>
+                    <p>Welcome to our new digital bulletin space! Use the box above to drop notes for the rest of the 15 garden team members.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
