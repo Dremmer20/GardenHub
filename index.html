@@ -3,38 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Garden Volunteer Hub</title>
-    </head>
+    <title>Community Garden Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 <body>
 
-    <header>
-        <h1>Community Garden Volunteer Hub</h1>
-        <p>Growing together to feed our community. This hub connects our volunteers so we can efficiently manage our 10,000 sq. ft. garden.</p>
+    <div class="menu-btn" id="menuBtn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <nav class="side-nav" id="sideNav">
+        <a href="#" class="close-btn" id="closeBtn">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">Resources & Zero-Waste Ideas</a>
+        <a href="#">Photo Gallery</a>
+        <a href="#">Bulletin Board</a>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="word-art">Growing together to feed our community.</h1>
+            <p class="subtitle">Managing our 10,000 sq. ft. plot, one seed at a time.</p>
+        </div>
     </header>
-    
-    <main>
+
+    <main class="content-container">
         
-        <section id="garden-status">
-            <h2>Current Status</h2>
-            <p><strong>Plot:</strong> 200' x 50'</p>
-            <p><strong>Update:</strong> Land is tilled and initially planted. Currently in the ground: Sweet Corn, Peppers, Pumpkins, Beans, and Squash.</p>
-        </section>
-        
-        <section id="task-board">
-            <h2>This Week's Priority Tasks</h2>
-            <ul>
-                <li>Establish watering schedule for the newly planted seeds.</li>
-                <li>Map out exact quantities of what is currently planted.</li>
-                <li>Brainstorm list of required tools and supplies.</li>
+        <section class="card to-do-section">
+            <h2><i class="fas fa-clipboard-list"></i> Priority Tasks</h2>
+            <ul class="task-list">
+                <li><input type="checkbox"> Establish watering schedule for sweet corn and peppers.</li>
+                <li><input type="checkbox"> Map out exact quantities of beans and squash.</li>
+                <li><input type="checkbox"> Weed the north perimeter.</li>
             </ul>
         </section>
-        
-        <section id="idea-zone">
-            <h2>Share Your Ideas</h2>
-            <p>Collaboration board coming soon.</p>
+
+        <section class="card calendar-section">
+            <h2><i class="fas fa-calendar-alt"></i> Volunteer Schedule</h2>
+            
+            <div class="legend-box">
+                <h3>How to log your time:</h3>
+                <p>To keep things uniform, please format your calendar entries like this:</p>
+                <div class="legend-example"><strong>[Name] [Time] [Task]</strong></div>
+                <p><em>Example: Carl 5PM Water</em> <br> <em>Example: Amanda Noon Weed</em></p>
+            </div>
+
+            <div class="calendar-embed-container">
+                <p style="text-align: center; color: #555; padding: 2rem;">
+                    <em>[We will paste your Google Calendar iframe code right here later]</em>
+                </p>
+            </div>
+        </section>
+
+        <section class="card weather-section">
+            <a class="weatherwidget-io" href="https://forecast7.com/en/42d73n85d14/lake-odessa/" data-label_1="LAKE ODESSA" data-label_2="WEATHER" data-theme="pure" >LAKE ODESSA WEATHER</a>
         </section>
 
     </main>
 
+    <script src="script.js"></script>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
 </body>
 </html>
