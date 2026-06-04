@@ -20,7 +20,6 @@ body {
 
 /* Fixed Background Hero Section */
 .hero-section {
-    /* This creates the fixed parallax scrolling effect */
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=2070&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
@@ -49,6 +48,20 @@ body {
     font-weight: 300;
 }
 
+/* Updated Dressed-Up Subtitle */
+.dressed-up-subtitle {
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #e8f5e9;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    background-color: rgba(46, 125, 50, 0.6);
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 /* Fixed Menu Button */
 .menu-btn {
     position: fixed;
@@ -60,7 +73,7 @@ body {
     border-radius: 5px;
     font-size: 1.5rem;
     cursor: pointer;
-    z-index: 1000; /* Stays above everything */
+    z-index: 1000;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
@@ -101,7 +114,7 @@ body {
 /* Main Content & Cards */
 .content-container {
     max-width: 800px;
-    margin: -40px auto 40px auto; /* Pulls content up over the hero image slightly */
+    margin: -40px auto 40px auto;
     padding: 0 20px;
     position: relative;
     z-index: 10;
@@ -170,6 +183,7 @@ h2 {
         margin-top: -20px;
     }
 }
+
 /* Additional multi-page styling elements */
 .weather-card {
     margin-top: 30px;
@@ -200,15 +214,20 @@ h2 {
     gap: 10px;
     border: 2px dashed #bdbdbd;
 }
-.dressed-up-subtitle {
-    font-size: 1.4rem;
-    font-style: italic;
-    font-weight: 400;
-    color: #e8f5e9;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-    background-color: rgba(46, 125, 50, 0.6);
-    padding: 8px 15px;
-    border-radius: 20px;
-    display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+
+/* Responsive Calendar Fix */
+.responsive-calendar {
+    position: relative;
+    padding-bottom: 75%; /* Sets the aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.responsive-calendar iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
 }
