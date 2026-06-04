@@ -13,17 +13,22 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/* UPDATED: The background image now lives on the body.
+  This covers the entire page and stays fixed while scrolling. 
+*/
 body {
-    background-color: var(--light-green);
-    color: var(--dark-text);
-}
-
-/* Fixed Background Hero Section */
-.hero-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=2070&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; 
+    background-attachment: fixed;
+    color: var(--dark-text);
+    min-height: 100vh;
+}
+
+/* UPDATED: Hero Section background removed. 
+  It now just holds the text in place over the body's background. 
+*/
+.hero-section {
     height: 60vh;
     display: flex;
     align-items: center;
@@ -48,7 +53,7 @@ body {
     font-weight: 300;
 }
 
-/* Updated Dressed-Up Subtitle */
+/* Dressed-Up Subtitle */
 .dressed-up-subtitle {
     font-size: 1.4rem;
     font-style: italic;
@@ -218,7 +223,7 @@ h2 {
 /* Responsive Calendar Fix */
 .responsive-calendar {
     position: relative;
-    padding-bottom: 75%; /* Sets the aspect ratio */
+    padding-bottom: 75%; 
     height: 0;
     overflow: hidden;
 }
