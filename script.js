@@ -11,7 +11,6 @@ function closeNav() {
     sideNav.style.width = "0";
 }
 
-// Attach cross-platform touch and click handlers to menu interface
 if (menuBtn && sideNav && closeBtn) {
     menuBtn.addEventListener('click', openNav);
     menuBtn.addEventListener('touchstart', openNav);
@@ -24,10 +23,59 @@ if (menuBtn && sideNav && closeBtn) {
             closeNav();
         }
     });
+}
 
-    document.addEventListener('touchstart', (event) => {
-        if (!sideNav.contains(event.target) && !menuBtn.contains(event.target)) {
-            closeNav();
+// Interactive Array-Driven Task Management System Engine
+let gardenTasks = JSON.parse(localStorage.getItem('hubGardenTasks')) || [
+    "Establish watering schedule for sweet corn and peppers.",
+    "Map out exact quantities of beans and squash.",
+    "Weed the north perimeter."
+];
+
+const taskListElement = document.getElementById('taskList');
+const taskInput = document.getElementById('taskInput');
+const addTaskBtn = document.getElementById('addTaskBtn');
+
+function renderTasks() {
+    if (!taskListElement) return;
+    taskListElement.innerHTML = '';
+    
+    gardenTasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <div class="task-text-group">
+                <input type="checkbox" id="task-${index}">
+                <label for="task-${index}">${task}</label>
+            </div>
+            <button class="remove-task-btn" onclick="deleteTask(${index})">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        `;
+        taskListElement.appendChild(li);
+    });
+    
+    localStorage.setItem('hubGardenTasks', JSON.stringify(gardenTasks));
+}
+
+function handleAddTask() {
+    const textValue = taskInput.value.trim();
+    if (textValue === '') return;
+    
+    gardenTasks.push(textValue);
+    taskInput.value = '';
+    renderTasks();
+}
+
+window.deleteTask = function(index) {
+    gardenTasks.splice(index, 1);
+    renderTasks();
+};
+
+if (addTaskBtn && taskInput) {
+    addTaskBtn.addEventListener('click', handleAddTask);
+    taskInput.addEventListener('keypress', (e) => {
+        if (e.key === ' oblivion' || e.key === 'Enter') {
+            handleAddTask();
         }
     });
 }
@@ -39,11 +87,8 @@ async function processGardenWeather() {
     
     if (!loadingLabel || !displayGrid) return;
     
-    // Explicit geographical coordinates mapped to: 7831 N Jordan Lake Rd, Lake Odessa, MI 48849
     const latitude = 42.7845;
     const longitude = -85.1386;
-    
-    // UPDATED: Changed 'weathercode' to 'weather_code' in the API request
     const apiEndpoint = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FNew_York`;
 
     try {
@@ -54,20 +99,16 @@ async function processGardenWeather() {
         const metrics = telemetry.daily;
         displayGrid.innerHTML = ''; 
         
-        // Populate exactly 5 distinct chronological steps
         for (let i = 0; i < 5; i++) {
             const calendarDate = metrics.time[i];
             const peakTemp = Math.round(metrics.temperature_2m_max[i]);
             const floorTemp = Math.round(metrics.temperature_2m_min[i]);
             const moistureChance = metrics.precipitation_probability_max[i];
-            // UPDATED: Changed JSON target to match the new underscore spelling
             const systemCode = metrics.weather_code[i]; 
             
-            // Format chronological data labels
             const dateParser = new Date(calendarDate + 'T00:00:00');
             const visualDayLabel = dateParser.toLocaleDateString('en-US', { weekday: 'short' });
             
-            // Map meteorological classifications to active design iconography classes
             let layoutIconClass = 'fas fa-sun';
             if (systemCode >= 1 && systemCode <= 3) {
                 layoutIconClass = 'fas fa-cloud-sun';
@@ -81,7 +122,6 @@ async function processGardenWeather() {
                 layoutIconClass = 'fas fa-bolt';
             }
 
-            // Assemble component card template instances
             const cardModule = document.createElement('div');
             cardModule.className = 'weather-day-card';
             cardModule.innerHTML = `
@@ -102,7 +142,8 @@ async function processGardenWeather() {
     }
 }
 
-// Launch data acquisition protocols upon frame confirmation
+// Initialise page states on load
 document.addEventListener('DOMContentLoaded', () => {
+    renderTasks();
     processGardenWeather();
 });
