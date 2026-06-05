@@ -43,7 +43,8 @@ async function processGardenWeather() {
     const latitude = 42.7845;
     const longitude = -85.1386;
     
-    const apiEndpoint = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FNew_York`;
+    // UPDATED: Changed 'weathercode' to 'weather_code' in the API request
+    const apiEndpoint = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FNew_York`;
 
     try {
         const networkResponse = await fetch(apiEndpoint);
@@ -59,7 +60,8 @@ async function processGardenWeather() {
             const peakTemp = Math.round(metrics.temperature_2m_max[i]);
             const floorTemp = Math.round(metrics.temperature_2m_min[i]);
             const moistureChance = metrics.precipitation_probability_max[i];
-            const systemCode = metrics.weathercode[i];
+            // UPDATED: Changed JSON target to match the new underscore spelling
+            const systemCode = metrics.weather_code[i]; 
             
             // Format chronological data labels
             const dateParser = new Date(calendarDate + 'T00:00:00');
