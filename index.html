@@ -57,9 +57,11 @@
 
         <section class="card weather-card">
             <h2><i class="fas fa-cloud-sun"></i> 5-Day Forecast</h2>
-            <div class="weather-container">
-                <iframe src="https://www.meteoblue.com/en/weather/widget/three/lake-odessa_united-states-of-america_4998495?geoloc=fixed&nocurrent=0&noforecast=0&days=5&tempunit=FAHRENHEIT&windunit=MILE_PER_HOUR&precipunit=INCH&timeformat=Y-m-d&layout=dark" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 100%; height: 600px;"></iframe>
+            <div id="weather-loading" class="weather-loading-text">
+                <i class="fas fa-spinner fa-spin"></i> Synchronizing local coordinate forecast...
             </div>
+            <div id="weather-forecast-container" class="weather-grid">
+                </div>
         </section>
 
     </main>
