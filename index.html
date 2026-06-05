@@ -33,11 +33,14 @@
         
         <section class="card to-do-section">
             <h2><i class="fas fa-clipboard-list"></i> Priority Tasks</h2>
-            <ul class="task-list">
-                <li><input type="checkbox"> Establish watering schedule for sweet corn and peppers.</li>
-                <li><input type="checkbox"> Map out exact quantities of beans and squash.</li>
-                <li><input type="checkbox"> Weed the north perimeter.</li>
-            </ul>
+            
+            <div class="task-input-container">
+                <input type="text" id="taskInput" placeholder="Type a new garden task here...">
+                <button id="addTaskBtn"><i class="fas fa-plus"></i> Add</button>
+            </div>
+
+            <ul class="task-list" id="taskList">
+                </ul>
         </section>
 
         <section class="card calendar-section">
